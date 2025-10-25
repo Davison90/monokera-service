@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc00adb9-8e64-422b-b41a-d700ed73dabe" name="Changes" comment="Add initial application structure and configuration files">
-      <change beforePath="$PROJECT_DIR$/../customer-service/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customer-service/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dc00adb9-8e64-422b-b41a-d700ed73dabe" name="Changes" comment="Update workspace configuration for order service and adjust test paths" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -634,6 +631,7 @@
       <workItem from="1761408860722" duration="84000" />
       <workItem from="1761408963803" duration="834000" />
       <workItem from="1761409834378" duration="44000" />
+      <workItem from="1761409913475" duration="120000" />
     </task>
     <task id="LOCAL-00001" summary="firt commit">
       <option name="closed" value="true" />
@@ -747,7 +745,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761409534597</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update workspace configuration for order service and adjust test paths">
+      <option name="closed" value="true" />
+      <created>1761409944406</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761409944406</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,8 +783,10 @@
     <MESSAGE value="Refactor order creation process to include customer info validation and event publishing" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Initial commit Order Service" />
+    <MESSAGE value="Add customer management features with RabbitMQ integration" />
     <MESSAGE value="Add initial application structure and configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial application structure and configuration files" />
+    <MESSAGE value="Update workspace configuration for order service and adjust test paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace configuration for order service and adjust test paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

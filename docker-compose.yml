@@ -1,0 +1,67 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    environment:
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+
+  customer-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - customer-db-data:/var/lib/postgresql/data
+
+  order-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+
+  customer-service:
+    build: ./customer-service
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      customer-db:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgres://postgres:password@customer-db:5432/postgres
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+    ports:
+      - "3001:3000"
+
+  order-service:
+    build: ./order-service
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      order-db:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgres://postgres:password@order-db:5432/postgres
+      CUSTOMER_SERVICE_URL: http://customer-service:3000
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+    ports:
+      - "3000:3000"
+
+volumes:
+  customer-db-data:
+  order-db-data:
